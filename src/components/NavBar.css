@@ -1,17 +1,17 @@
-.navbar > a{
-    display: inline-block;
-    box-sizing: border-box;
-    width: 70px;
-    padding: 5px;
-    margin: 0 6px 6px;
-    background: lightblue;
-    text-decoration: none;
-    text-align: center;
-    font-size: min(10vw, 15px) ;
-    color: black;
+
+nav {
+  display: flex;
+  gap: 1rem;
+  background-color: #222;
+  padding: 10px;
 }
-  
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
 a.active {
-    background: black;
-    color: white;
+  font-weight: bold;
+  text-decoration: underline;
 }
