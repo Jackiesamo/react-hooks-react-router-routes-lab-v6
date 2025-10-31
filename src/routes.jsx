@@ -1,29 +1,30 @@
 
-// src/routes.jsx
-import Home from "./pages/Home.jsx";
-import Movie from "./pages/Movie.jsx";
-import Actors from "./pages/Actors.jsx";
-import Directors from "./pages/Directors.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+// src/routes.js
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
+import Directors from "./pages/Directors";
+import Actors from "./pages/Actors";
+import Movie from "./pages/Movie";
+import ErrorPage from "./pages/ErrorPage";
 
-const routes = [
+const routes = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/movie/:id",
-    element: <Movie />,
+    path: "/directors",
+    element: <Directors />,
   },
   {
     path: "/actors",
     element: <Actors />,
   },
   {
-    path: "/directors",
-    element: <Directors />,
+    path: "/movie/:id",
+    element: <Movie />,
   },
-];
+]);
 
 export default routes;

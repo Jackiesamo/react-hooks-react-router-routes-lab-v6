@@ -1,6 +1,7 @@
 
+// src/pages/Directors.js
 import { useEffect, useState } from "react";
-import NavBar from "../components/NavBar.jsx";
+import NavBar from "../components/NavBar";
 
 function Directors() {
   const [directors, setDirectors] = useState([]);
@@ -8,24 +9,26 @@ function Directors() {
   useEffect(() => {
     fetch("http://localhost:4000/directors")
       .then((res) => res.json())
-      .then((data) => setDirectors(data));
+      .then(setDirectors);
   }, []);
 
+  if (directors.length === 0) return <p>Loading...</p>;
+
   return (
-    <div>
+    <>
       <NavBar />
       <h1>Directors Page</h1>
       {directors.map((director) => (
-        <article key={director.id}>
+        <article key={director.name}>
           <h2>{director.name}</h2>
           <ul>
-            {director.movies.map((movie, index) => (
-              <li key={index}>{movie}</li>
+            {director.movies.map((movie) => (
+              <li key={movie}>{movie}</li>
             ))}
           </ul>
         </article>
       ))}
-    </div>
+    </>
   );
 }
 
