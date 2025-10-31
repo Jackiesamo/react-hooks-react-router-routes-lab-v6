@@ -1,13 +1,12 @@
 
 // src/routes.jsx
-import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Movie from "./pages/Movie.jsx";
 import Actors from "./pages/Actors.jsx";
 import Directors from "./pages/Directors.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 
-const routes = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <Home />,
@@ -25,6 +24,6 @@ const routes = createBrowserRouter([
     path: "/directors",
     element: <Directors />,
   },
-]);
+];
 
 export default routes;
