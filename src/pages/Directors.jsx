@@ -1,5 +1,5 @@
 
-import directors from "../data/directors";
+import directors from "../../directors";   // <-- root level
 
 function Directors() {
   return (
@@ -9,8 +9,8 @@ function Directors() {
         <article key={director.id}>
           <h2>{director.name}</h2>
           <ul>
-            {director.movies.map((movie, index) => (
-              <li key={index}>{movie}</li>
+            {director.movies.map((m, i) => (
+              <li key={i}>{m}</li>
             ))}
           </ul>
         </article>

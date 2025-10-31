@@ -1,6 +1,6 @@
 
 import MovieCard from "../components/MovieCard";
-import movies from "../data/movies";
+import movies from "../../movies";   // <-- root level
 
 function Home() {
   return (
