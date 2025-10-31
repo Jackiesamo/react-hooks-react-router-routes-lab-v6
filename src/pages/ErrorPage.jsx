@@ -1,6 +1,5 @@
 
 // src/pages/ErrorPage.jsx
-import React from "react";
 import NavBar from "../components/NavBar";
 
 function ErrorPage() {

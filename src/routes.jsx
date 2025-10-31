@@ -1,6 +1,5 @@
 
 // src/routes.jsx
-import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Movie from "./pages/Movie.jsx";
