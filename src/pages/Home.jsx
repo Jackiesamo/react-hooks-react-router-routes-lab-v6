@@ -1,18 +1,19 @@
 
-// src/pages/Home.js
-import { Outlet, useOutletContext } from "react-router-dom";
-import UserCard from "../components/UserCard";
+import { useOutletContext } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 function Home() {
-  const users = useOutletContext();
-  const userList = users.map((user) => <UserCard key={user.id} user={user} />);
+  const movies = useOutletContext() || []; // ✅ Fallback to empty array
+
+  const movieList = movies.map((movie) => (
+    <MovieCard key={movie.id} movie={movie} />
+  ));
 
   return (
-    <main>
-      <h1>Home!</h1>
-      <Outlet context={users} />
-      {userList}
-    </main>
+    <div>
+      <h1>Home Page</h1>
+      {movieList}
+    </div>
   );
 }
 

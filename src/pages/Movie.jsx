@@ -1,30 +1,24 @@
 
-// src/pages/Movie.js
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams, useOutletContext } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
 function Movie() {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const movies = useOutletContext() || [];
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/movies/${id}`)
-      .then((res) => res.json())
-      .then(setMovie);
-  }, [id]);
+  const movie = movies.find((m) => m.id === Number(id));
 
-  if (!movie) return <p>Loading...</p>;
+  if (!movie) return <h2>Movie not found</h2>; // ✅ Graceful fallback
 
   return (
-    <>
+    <div>
       <NavBar />
       <h1>{movie.title}</h1>
       <p>{movie.time} minutes</p>
-      {movie.genres.map((genre) => (
+      {Array.isArray(movie.genres) && movie.genres.map((genre) => (
         <span key={genre}>{genre} </span>
       ))}
-    </>
+    </div>
   );
 }
 

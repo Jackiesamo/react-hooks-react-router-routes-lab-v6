@@ -1,11 +1,23 @@
 
-// src/App.jsx
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import routes from "./routes";
+import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function App() {
-  const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+  const [movies, setMovies] = useState([
+    {
+      id: 1,
+      title: "Doctor Strange",
+      time: 115,
+      genres: ["Action", "Adventure", "Fantasy"],
+    },
+  ]);
+
+  return (
+    <>
+      <NavBar />
+      <Outlet context={movies} /> {/* ✅ provide movies to children */}
+    </>
+  );
 }
 
 export default App;
