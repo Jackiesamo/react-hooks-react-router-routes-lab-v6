@@ -1,28 +1,18 @@
 
 // src/pages/Home.js
-import { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-import MovieCard from "../components/MovieCard";
+import { Outlet, useOutletContext } from "react-router-dom";
+import UserCard from "../components/UserCard";
 
 function Home() {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:4000/movies")
-      .then((res) => res.json())
-      .then(setMovies);
-  }, []);
-
-  if (movies.length === 0) return <p>Loading...</p>;
+  const users = useOutletContext();
+  const userList = users.map((user) => <UserCard key={user.id} user={user} />);
 
   return (
-    <>
-      <NavBar />
-      <h1>Home Page</h1>
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </>
+    <main>
+      <h1>Home!</h1>
+      <Outlet context={users} />
+      {userList}
+    </main>
   );
 }
 

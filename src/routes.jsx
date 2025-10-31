@@ -1,32 +1,37 @@
 
 // src/routes.js
-import Home from "./pages/Home.jsx";
-import Actors from "./pages/Actors.jsx";
-import Directors from "./pages/Directors.jsx";
-import Movie from "./pages/Movie.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+import App from "./App";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import UserProfile from "./pages/UserProfile";
+import ErrorPage from "./pages/ErrorPage";
 
 const routes = [
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/actors",
-    element: <Actors />,
-  },
-  {
-    path: "/directors",
-    element: <Directors />,
-  },
-  {
-    path: "/movie/:id",
-    element: <Movie />,
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        children: [
+          {
+            path: "/profile/:id",
+            element: <UserProfile />,
+          },
+        ],
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
   },
 ];
 
