@@ -1,12 +1,49 @@
-span {
-    margin: 0px 2px;
+
+* {
+  box-sizing: border-box;
 }
 
-article {
-    border: solid 1px;
-    border-radius: 5px;
-    margin: 5px;
-    max-width: 350px;
-    box-sizing: border-box;
-    padding: 5px;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.movie-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+}
+
+.movie-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.view-info {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-info:hover {
+  text-decoration: underline;
+}
+
+span {
+  display: inline-block;
+  background-color: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }

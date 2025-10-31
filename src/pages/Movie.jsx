@@ -1,24 +1,29 @@
 
-import { useParams, useOutletContext } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import { useParams } from "react-router-dom";
+import movies from "../data/movies";
 
 function Movie() {
   const { id } = useParams();
-  const movies = useOutletContext() || [];
-
   const movie = movies.find((m) => m.id === Number(id));
 
-  if (!movie) return <h2>Movie not found</h2>; // ✅ Graceful fallback
+  if (!movie) {
+    return <h2>Movie not found</h2>;
+  }
 
   return (
-    <div>
-      <NavBar />
-      <h1>{movie.title}</h1>
-      <p>{movie.time} minutes</p>
-      {Array.isArray(movie.genres) && movie.genres.map((genre) => (
-        <span key={genre}>{genre} </span>
-      ))}
-    </div>
+    <>
+      <header>
+        <h1>{movie.title}</h1>
+      </header>
+      <main>
+        <p>{movie.time} minutes</p>
+        <div>
+          {movie.genres.map((genre, index) => (
+            <span key={index}>{genre}</span>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
 

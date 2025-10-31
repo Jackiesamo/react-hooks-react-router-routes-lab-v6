@@ -1,9 +1,18 @@
 
+import { NavLink } from "react-router-dom";
+import "./NavBar.css";
+
 function NavBar() {
   return (
-    <nav className="navbar" role="navigation">
-      <a href="/">Home</a>
-      <a href="/movies">Movies</a>
+    <nav>
+      <NavLink to="/" end>
+        Home
+      </NavLink>{" "}
+      |{" "}
+      <NavLink to="/actors">Actors</NavLink> |{" "}
+      <NavLink to="/directors">Directors</NavLink>
     </nav>
   );
 }
+
+export default NavBar;

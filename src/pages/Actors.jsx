@@ -1,19 +1,9 @@
 
-import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar.jsx";
+import actors from "../data/actors";
 
 function Actors() {
-  const [actors, setActors] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:4000/actors")
-      .then((res) => res.json())
-      .then((data) => setActors(data));
-  }, []);
-
   return (
-    <div>
-      <NavBar />
+    <>
       <h1>Actors Page</h1>
       {actors.map((actor) => (
         <article key={actor.id}>
@@ -25,7 +15,7 @@ function Actors() {
           </ul>
         </article>
       ))}
-    </div>
+    </>
   );
 }
 
